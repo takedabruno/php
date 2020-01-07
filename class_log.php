@@ -3,6 +3,7 @@
 * Classe original em : http://rberaldo.com.br/como-gerar-logs-execucao-php/
 * Adaptações realizadas para atender necessidades.
 */
+
 class log{
 
     function logMsg($msg, $level = 'info', $file = 'main.log'){
