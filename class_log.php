@@ -1,11 +1,10 @@
 <?php
-/*
-* Classe original em : http://rberaldo.com.br/como-gerar-logs-execucao-php/
-* Adaptações realizadas para atender necessidades.
-*/
 
 class log{
-
+    
+    //Exemplo de como logar a classe e método que estão sendo executados o método logMsg
+    //$this->log->logMsg(__METHOD__ . "-> " . "Lendo arquivo local : " . $arquivo_caminho);
+    
     function logMsg($msg, $level = 'info', $file = 'main.log'){
         // variável que vai armazenar o nível do log (INFO, WARNING ou ERROR)
         $levelStr = '';
@@ -31,7 +30,6 @@ class log{
         // data atual
         // O banco de dados de fusos horários IANA que o PHP fornece utiliza sinais estilo POSIX, que resulta nas time zones Etc/GMT+n Etc/GMT-n acabarem invertidas do uso comum.
         // O Brasil é Etc/GMT-3, mas para usar corretamente no PHP, inverte-se o sinal Etc/GMT+3
-        
         date_default_timezone_set("Etc/GMT+3"); 
         $date = date('Y-m-d H:i:s');
 
@@ -45,6 +43,9 @@ class log{
         // escreve o log no arquivo
         // é necessário usar FILE_APPEND para que a mensagem seja escrita no final do arquivo, preservando o conteúdo antigo do arquivo
         file_put_contents($file, $msg, FILE_APPEND);
+        
+        return;
     }
 }
+
 ?>
